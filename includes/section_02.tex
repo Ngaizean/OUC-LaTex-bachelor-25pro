@@ -1,0 +1,81 @@
+\section{相关理论基础}
+
+
+
+
+
+
+
+
+
+
+
+\subsection{深度学习理论基础}
+深度学习方法是一种拥有多层表示特征的学习方法，在每一层中通过简单但是非线性的模块将一个层级的数据（以原始数据开始）转换到更高层次，和更抽象的表达形式。通过足够多的转换，即使非常复杂的函数也可以被计算机学习到。对于分类任务,更高层次的表示可以放大输入数据之间的区别并且抑制无关的变化。例如，对于一幅图像来说，以像素值矩阵的形式输入，在第一层中被学习的往往是在图像中某些特定方向或位置边缘存在与否的特征。第二层往往是根据提取边界的走向来检测图案，而忽略边缘位置的细小变化。第三层可能是将图案组合成更大的组合图案，从而与相似的目标部分对应，并且随后的层会将这些部分再联合从而构成检测的目标。深度学习的先进之处在于这些层的设计不是由人类工程师完成的，而是通过使用通用的学习算法从原始数据中学习得到的。
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/Aurora.png} 
+	\caption{这是一张图片\cite{chen2016evolving}} 
+	\label{gs}
+\end{figure}
+这是一个引用\cite{chen2016evolving}
+
+\subsubsection{感知机}
+
+
+
+\subsubsection{损失函数}
+
+
+
+\subsubsection{反向传播算法}
+
+
+
+
+
+
+
+\subsection{卷积神经网络理论基础}
+    
+
+\subsection{医学图像处理相关网络结构}
+
+\subsubsection{U-net}
+
+    
+
+\subsubsection{Transformer}
+
+
+
+
+
+\begin{equation}
+    x = y+z
+\end{equation}
+
+
+
+测试表格：
+\begin{table}[!htbp]
+    \centering
+    \caption{一个基本的三线表}
+    \begin{tabular*}{350pt}{@{\extracolsep{\fill}}ccc}
+        \toprule
+        第一列 & 第二列     & 第三列      \\
+        \midrule
+        文字  & English & $\alpha$ \\
+        文字  & English & $\beta$  \\
+        文字  & English & $\gamma$ \\
+        \bottomrule
+    \end{tabular*}
+\end{table}
+
+测试公式：
+\begin{equation}
+    \lim_{x\to 0}{\frac{e^x-1}{2x}}
+    \overset{\left[\frac{0}{0}\right]}{\underset{\mathrm{H}}{=}}
+    \lim_{x\to 0}{\frac{e^x}{2}}={\frac{1}{2}}
+\end{equation}
+\newpage
