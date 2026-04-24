@@ -1,0 +1,29 @@
+\section{融合算子的 CUDA 实现与优化}
+
+\subsection{分块与任务映射}
+
+若将三矩阵链式乘法映射到单个 kernel 中执行，通常需要同时考虑第一阶段生成中间结果与第二阶段消费中间结果的任务划分方式。这里保留一段简化描述，用于展示实现章节中的技术阐述风格。
+
+\subsection{数据搬运优化}
+
+融合实现通常需要关注三类数据路径：全局内存到共享内存、共享内存到寄存器，以及中间结果在片上存储之间的传递。实际写作中可在此扩展双缓冲、向量化加载、\texttt{cp.async} 或 \texttt{ldmatrix} 等实现细节。
+
+\subsection{方法示例比较}
+
+\begin{table}[htbp]
+    \centering
+    \caption{融合方法示例比较}
+    \label{tab:fusion_method_compare}
+    \renewcommand{\arraystretch}{1.25}
+    \begin{tabular}{p{3.2cm}p{3.0cm}p{5.6cm}}
+        \toprule
+        方法 & 中间结果路径 & 说明 \\
+        \midrule
+        寄存器级数据广播 & 寄存器到寄存器 & 适合展示 warp 内数据交换与广播思路。 \\
+        零中转数据转发 & Tensor Core 片段复用 & 适合展示寄存器片段兼容的设计思路。 \\
+        梳状切片转储 & 共享内存中转 & 适合展示以共享内存换布局灵活性的方案。 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+表\ref{tab:fusion_method_compare} 仅作为表格排版示例。若你的论文并非 GPU 方向，可以直接用自己的实验表或方法表替换本节内容。

@@ -1,8 +1,16 @@
-build_main:
-	xelatex -file-line-error -interaction=nonstopmode -synctex=1 main.tex
+MAIN=main
+OPENING=openingreport
 
-build_mainor:
-	xelatex -file-line-error -interaction=nonstopmode -synctex=1 openingreport.tex
+build_main:
+	xelatex -file-line-error -interaction=nonstopmode -synctex=1 $(MAIN).tex
+	bibtex $(MAIN)
+	xelatex -file-line-error -interaction=nonstopmode -synctex=1 $(MAIN).tex
+	xelatex -file-line-error -interaction=nonstopmode -synctex=1 $(MAIN).tex
+
+build_openingreport:
+	xelatex -file-line-error -interaction=nonstopmode -synctex=1 $(OPENING).tex
+
+build_mainor: build_openingreport
 
 clean:
-	rm -rf *.pdf *.log  *.aux *.synctex.gz *.toc
+	rm -f *.pdf *.log *.aux *.out *.toc *.bbl *.blg *.fdb_latexmk *.fls *.synctex.gz

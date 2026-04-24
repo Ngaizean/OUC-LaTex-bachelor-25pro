@@ -1,98 +1,77 @@
+% !TEX program = xelatex
 \documentclass[UTF8,zihao=-4]{oucart}
 \usepackage{indentfirst}
-%\usepackage{graphicx, subfig}
 \usepackage{graphicx}
-%\usepackage{subfig}
-%\usepackage{subfigure}
-%\usepackage{subcaption} % 子图
-\usepackage{caption} % 引入caption包以支持子图标题
+\usepackage{caption}
 \usepackage{subfigure}
-%\usepackage{subcaption} % 子图
-
- \usepackage{hyperref} %超链接跳转（文献，图表）
- \usepackage{booktabs}
-\usepackage{xeCJK} % For Chinese font support
-\usepackage{tikz} % 引入 TikZ 绘图包
-\usetikzlibrary{positioning,decorations.pathreplacing}  % 添加 decorations.pathreplacing 库
-\usepackage{CJKutf8}
-\usepackage{cite}
-\usepackage{ctex}    % 支持中文
-%\usepackage[numbers]{natbib}  % 使用数字引用样式
-\usepackage[sort&compress]{natbib}  % 使用上标引用样式
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning,decorations.pathreplacing}
+\usepackage{ctex}
+\setmainfont{Times New Roman}
+\usepackage[sort&compress]{natbib}
 \usepackage{gbt7714}
-\usepackage{amsmath}    % 用于基本数学公式
-\usepackage{algorithm}  % 用于算法伪代码
-\usepackage{algorithmic} % 用于算法描述
-\usepackage{array}      % 用于矩阵和表格
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{array}
+\usepackage{multirow}
 
-% 自定义引用格式（可选）
 \makeatletter
 \renewcommand\@cite[1]{{\textsuperscript{[{#1}]}}}
 \makeatother
 
-\title{基于深度学习的能工智人的研究}
-\entitle{ !Don't forget!! The Title of the Thesis}
-\author{ 你的名字}
-\studentid{}
-\advisor{}
-\department{信息科学与工程学院}{电子信息工程202x}
-
-
+\title{基于GPU的三矩阵融合乘法研究（模板示例）}
+\entitle{Template Example for GPU Triple-Matrix Fusion}
+\author{你的姓名}
+\studentid{你的学号}
+\advisor{指导教师}
+\department{学院名称}{专业班级}
 
 \cnabstractkeywords{
-    这里是摘要
+    本模板用于展示中国海洋大学本科毕业论文的基础版式。正文只保留少量“三矩阵链式乘法融合优化”相关示例内容，用于演示章节层级、公式、图表、表格与参考文献的排版效果。实际使用时，建议保留当前模板结构，再将各章节内容替换为自己的论文正文。
 }
 {
-    这里是关键词，深度学习
+    三矩阵乘法；GPU；论文模板；LaTeX 排版
 }
 \enabstractkeywords{
-    This is abstract in English. 
+    This template demonstrates the basic layout for an undergraduate thesis at Ocean University of China. Only a small amount of content related to triple matrix fusion multiplication is kept as placeholder text so that sections, equations, figures, tables, and references can be previewed during writing.
 }{
-    This is keyword, Deep Learning, 
+    triple matrix multiplication; GPU; thesis template; LaTeX
 }
-
-\renewcommand{\baselinestretch}{1.6}
 
 \begin{document}
 
-    \makecover % 封面
-    \makesignature % 扉页
-    \makeabstract % 摘要
+    \makecover
+    \makesignature
+    \makeabstract
 
-% 目录
-    \thispagestyle{tableofcontents}
+    \pagestyle{tableofcontents}
     \tableofcontents
-    \newpage
+    \clearpage
+    \pagestyle{mainbody}
 
     \pagenumbering{arabic}
     \setcounter{page}{1}
 
-% 正文内容
-% 建议使用 \input{<文件名>} 指令引用其他文件
+    \input{includes/introduction}
+    \input{includes/foundation}
+    \input{includes/kernel_design}
+    \input{includes/kernel_imple}
+    \input{includes/experiment}
+    \input{includes/conclusion}
 
-    \input{includes/section_01}
-    \newpage
-    \input{includes/section_02}
-    \newpage
+\bibliography{ref}
 
-    
-    
-
-% 参考文献
-% 在文档末尾添加参考文献
-\bibliography{ref}    % 使用 references.bib 文件
-%\bibliographystyle{gbt7714-numerical}  % 使用 GBT7714 数字引用样式
-   
     \newpage
 
-% 致谢
     \addcontentsline{toc}{nonumbersection}{致谢}
     \begin{center}
-        \zihao{3} \textbf{致谢} \\
+        {\zihao{-3}\heiti 致谢}
     \end{center}
 
-    在论文的最后我想向所有帮助支持过我的亲人、朋友、老师致以崇高的敬意和真诚的感谢，感谢你们在我大学四年的生活中给予的帮助与支持！
-
-    时光若白驹过隙，倏忽而逝，转眼间我的大学生活就将成为过往序章。在海大的这些年是自由、快乐、充实并且精彩的，我很幸运自己的这一路，多是真诚与帮助，而少有险恶和心机，所以我心存感激，感谢自己在海大遇见的一切吧！
+    此处填写致谢内容。模板仓库中的文字仅用于展示排版位置，提交前请替换为自己的正式内容。
 
 \end{document}

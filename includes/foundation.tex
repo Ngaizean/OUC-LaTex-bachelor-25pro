@@ -1,0 +1,23 @@
+\section{相关理论与技术基础}
+
+本章保留少量三矩阵融合乘法相关内容，用于展示理论章节中公式、引用与段落的排版效果。
+
+\subsection{矩阵乘法}
+
+设 $\mathbf{X} \in \mathbb{R}^{p \times m}$、$\mathbf{A} \in \mathbb{R}^{m \times k}$、$\mathbf{B} \in \mathbb{R}^{k \times n}$，则三矩阵链式乘法可写为：
+\begin{equation}
+    \mathbf{T} = \mathbf{X}\mathbf{A}, \quad \mathbf{M} = \mathbf{T}\mathbf{B}.
+\end{equation}
+在模板示例中，上式仅用于展示数学公式与编号样式。真实论文中可以在此处补充问题定义、符号说明和复杂度分析。
+
+\subsection{GPU 并行计算基础}
+
+现代 NVIDIA GPU 采用 SIMT 执行模型，线程通常以 Warp 为基本调度单位\cite{nvidia2022cuda}。在矩阵乘法场景中，计算性能往往依赖于分块策略、共享内存复用以及全局内存访问模式，因此该部分通常会构成正文中的基础理论章节。
+
+\subsection{Tensor Core 与融合乘加指令}
+
+Tensor Core 为半精度和混合精度矩阵乘法提供了高吞吐硬件路径\cite{demystifying_tc}。若论文主题涉及 GPU 高性能计算，可在此节继续扩展 WMMA、MMA 或 \texttt{ldmatrix} 等相关内容；若主题不同，则可将本节替换为自己的理论基础。
+
+\subsection{现有矩阵乘法库}
+
+cuBLAS 与 CUTLASS 是常见的高性能矩阵乘法实现与开发框架\cite{nvidia2022cutlass}。这里保留一小段示例文字，目的是让模板在编译后能同时展示参考文献、术语和多级标题排版效果。

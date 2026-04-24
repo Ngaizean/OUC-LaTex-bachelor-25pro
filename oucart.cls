@@ -4,7 +4,7 @@
 \LoadClass[11pt,a4paper]{article}
 
 \RequirePackage{ctex}
-\RequirePackage{CJKutf8}
+% \RequirePackage{CJKutf8}
 
 % \RequirePackage[UTF8,scheme=plain]{ctex}
 
@@ -20,18 +20,31 @@
 
 % 页边距设置
 \RequirePackage{geometry}
-\linespread{1.35}
+
+% 正文默认使用小四，固定 24 磅行距
+\makeatletter
+\renewcommand\normalsize{%
+  \@setfontsize\normalsize{12pt}{24pt}%
+  \abovedisplayskip 12pt plus 3pt minus 7pt%
+  \abovedisplayshortskip \z@ plus 3pt%
+  \belowdisplayshortskip 6.5pt plus 3.5pt minus 3pt%
+  \belowdisplayskip \abovedisplayskip%
+  \let\@listi\@listI
+}
+\makeatother
+\AtBeginDocument{\normalsize}
 
 \RequirePackage{fancyhdr}
-\pagestyle{fancy}
+\setlength{\headheight}{15pt}
 
 \RequirePackage{assets/cover}
+\RequirePackage{assets/coveror}
 \RequirePackage{assets/abstractkeywords}
 \RequirePackage{assets/signature}
 
 % ``目录'', ``参考文献''样式
-\renewcommand{\contentsname}{\centerline{\zihao{3}{\heiti{目$\qquad$录}}}}
-\renewcommand{\refname}{\centerline{参考文献}}
+\renewcommand{\contentsname}{\centerline{\zihao{3}{\heiti{目$\qquad\quad$录}}}}
+\renewcommand{\refname}{\centerline{\zihao{-3}\heiti{参考文献}}}
 
 % 调整页边距
 \geometry{top=2.54cm,bottom=2.54cm,left=3cm,right=3cm} 
@@ -51,24 +64,21 @@
 \newcommand*{\studentid}[1]{
   \def\@studentid{#1}
 }
+\newcommand*{\grade}[1]{
+  \def\@grade{#1}
+}
 \newcommand*{\department}[2]{
   \def\@college{#1}
   \def\@department{#2}
 }
 
-\lhead{}
-\rhead{}
-\chead{\small{\@title}} % 页眉
-
-\makeatother
-
 % 修改标题样式
 \titleformat{\section}
-            {\zihao{2}\heiti\raggedright}
-            {\arabic{section}.}{1em}
+            {\zihao{3}\heiti\raggedright}
+            {\arabic{section}}{1em}
             {}
 \titleformat{\subsection}
-            {\zihao{3}\heiti\raggedright}
+            {\zihao{4}\heiti\raggedright}
             {\arabic{section}.\arabic{subsection}}{1em}
             {}
 \titleformat{\subsubsection}
@@ -103,17 +113,33 @@
               {\titlerule*{.}\contentspage}
 
 % 修改部分页眉样式
+\fancypagestyle{mainbody}{
+\fancyhf{}
+\chead{\small{\@title}}
+\cfoot{\zihao{-5}\thepage}
+}
+
 \fancypagestyle{zhabstract}{
+\fancyhf{}
 \chead{\small{摘\ \ \ 要}}
+\cfoot{\zihao{-5}\thepage}
 }
 
 \fancypagestyle{enabstract}{
+\fancyhf{}
 \chead{\small{Abstract}}
+\cfoot{\zihao{-5}\thepage}
 }
 
 \fancypagestyle{tableofcontents}{
+\fancyhf{}
 \chead{\small{目\ \ \ 录}}
+\cfoot{\zihao{-5}\thepage}
 }
+
+\makeatother
+
+\pagestyle{mainbody}
 
 % 图、表、公式样式
 \captionsetup{figurewithin=section}

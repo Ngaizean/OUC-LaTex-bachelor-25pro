@@ -1,0 +1,82 @@
+# LaTeX 编译产生的临时文件
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.bcf
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.synctex.gz(busy)
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.brf
+*.nav
+*.snm
+*.vrb
+
+# PDF 文件（如果你不想提交编译好的 PDF）
+# 注释掉下面这行，如果你想提交 PDF 到 Overleaf
+*.pdf
+
+# 压缩和备份文件
+*.gz
+*.zip
+*.7z
+*.rar
+*~
+*.bak
+*.backup
+
+# 编辑器临时文件
+*.swp
+*.swo
+.*.swp
+.DS_Store
+*.tmp
+*.temp
+
+# 图片转换产生的临时文件
+*.eps-converted-to.pdf
+*-eps-converted-to.pdf
+
+# 字体缓存
+missfont.log
+
+# latexmk 产生的文件
+*.fls
+*.fdb_latexmk
+*.ptc
+*.maf
+*.mtc*
+*.mtc0
+
+# Texmaker, TexStudio, TeXworks 等编辑器
+*.backup
+*.synctex.gz
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+.directory
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+/Code
